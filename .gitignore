@@ -59,3 +59,4 @@ replit.nix
 # Cache
 .cache/
 .parcel-cache/
+.vercel

@@ -1,9 +1,13 @@
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import { registerRoutes } from "../routes.ts";
+import { setupVite, serveStatic, log } from "../vite";
 import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
+import cors from "cors";
+
+// Allow all origins
+app.use(cors());
 
 // Regular JSON parser for most endpoints
 app.use((req, res, next) => {
@@ -98,3 +102,5 @@ app.use((req, res, next) => {
     log(`serving on port ${port}`);
   });
 })();
+
+export default app;
